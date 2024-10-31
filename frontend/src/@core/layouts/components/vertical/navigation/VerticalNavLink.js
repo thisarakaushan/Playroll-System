@@ -51,13 +51,20 @@ const VerticalNavLink = ({ item, navVisible, toggleNavVisibility }) => {
   const router = useRouter()
   const IconTag = item.icon
 
-  const isNavLinkActive = () => {
-    if (router.pathname === item.path || handleURLQueries(router, item.path)) {
-      return true
-    } else {
-      return false
-    }
-  }
+  const isBasePathActive = () => {
+    const basePath = item.path; // Assuming `item.path` is the base path, e.g., '/reports'
+    return router.pathname === basePath || router.pathname.startsWith(`${basePath}/`);
+  };
+  
+
+  // const isNavLinkActive = () => {
+  //   console.log(router.pathname)
+  //   if (router.pathname.startsWith(item.path) || handleURLQueries(router, item.path)) {
+  //     return true
+  //   } else {
+  //     return false
+  //   }
+  // }
 
   return (
     <ListItem
@@ -69,7 +76,8 @@ const VerticalNavLink = ({ item, navVisible, toggleNavVisibility }) => {
       <Link passHref href={item.path === undefined ? '/' : `${item.path}`}>
         <MenuNavLink
           component={'a'}
-          className={isNavLinkActive() ? 'active' : ''}
+          className={isBasePathActive() ? 'active' : ''}
+          // className={isNavLinkActive() ? 'active' : ''}
           {...(item.openInNewTab ? { target: '_blank' } : null)}
           onClick={e => {
             if (item.path === undefined) {
