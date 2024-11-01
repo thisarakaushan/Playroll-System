@@ -77,14 +77,30 @@ const Reports = () => {
     // Second section with all other cards
     const renderOtherCards = () => {
         const cards = [
-            { title: 'Job Demand Letter Full Time' },
-            { title: 'Job Demand Letter Part Time' },
-            { title: 'Part Time Quotations' },
-            { title: 'Hotel Quotations' },
-            { title: 'Company Quotations' },
-            { title: 'Passport Handover Letter' },
-            { title: 'Passport Safe Letter' },
-            { title: 'Job Money Letter' }
+            { title: 'Job Demand Letter Full Time', 
+                path: '/reports/job-demand-letter-full-time', 
+                description: 'This is the job demand letter for full-time employees.'},
+            { title: 'Job Demand Letter Part Time', 
+                path: '/reports/job-demand-letter-part-time', 
+                description: 'This is the job demand letter for part-time employees.'},
+            { title: 'Part Time Quotation', 
+                path: '/reports/part-time-quotation', 
+                description: 'This is the quotation for part-time projects.'},
+            { title: 'Hotel Quotation', 
+                path: '/reports/hotel-quotation', 
+                description: 'This is the quotation for hotel services.'},
+            { title: 'Company Quotation', 
+                path: '/reports/company-quotation', 
+                description: 'This is the quotation for company services.'},
+            { title: 'Passport Handover Letter', 
+                path: '/reports/passport-handover-letter', 
+                description: 'This is the passport handover letter to employees.'},
+            { title: 'Passport Safe Letter', 
+                path: '/reports/passport-safe-letter', 
+                description: 'This is the letter for passport safekeeping.'},
+            { title: 'Job Money Letter', 
+                path: '/reports/job-money-letter', 
+                description: 'This is the letter regarding financial information.'}
         ];
 
         return (
@@ -92,7 +108,7 @@ const Reports = () => {
                 {cards.map((card, index) => (
                     <Grid item xs={12} md={3} key={index}>
                         <Card>
-                            <CardActionArea onClick={() => handleCardClick('/reports/application-form')}>
+                            <CardActionArea onClick={() => handleCardClick(card.path)}>
                                 <CardContent sx={{ p: 4, position: 'relative', height: '100%' }}>
                                     <Typography
                                         variant='h6'
@@ -103,8 +119,7 @@ const Reports = () => {
                                         {card.title}
                                     </Typography>
                                     <Typography variant='body2' sx={{ color: 'text.secondary', marginBottom: 7 }}>
-                                        This is the application form for new job applicants
-                                    </Typography>
+                                        {card.description}                                    </Typography>
                                     <Indicator />
                                     <TriangleImg alt='triangle background' src={`/images/misc/${imageSrc}`} />
                                 </CardContent>
