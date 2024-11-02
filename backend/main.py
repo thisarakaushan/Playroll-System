@@ -5,7 +5,7 @@ from services.mongo_service import mongo_db
 
 # Import routers form endpoint files
 from api.endpoints.test import router as testRouter
-from api.endpoints.report import router as reportRouter
+from api.endpoints.reports import router as reportRouter
 
 app = FastAPI()
 
