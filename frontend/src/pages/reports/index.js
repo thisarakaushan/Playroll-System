@@ -118,7 +118,7 @@ const Reports = () => {
                                     >
                                         {card.title}
                                     </Typography>
-                                    <Typography variant='body2' sx={{ color: 'text.secondary', marginBottom: 7 }}>
+                                    <Typography variant='body2' sx={{ color: 'text.secondary', marginBottom: 7, height: '42px' }}>
                                         {card.description}                                    </Typography>
                                     <Indicator />
                                     <TriangleImg alt='triangle background' src={`/images/misc/${imageSrc}`} />

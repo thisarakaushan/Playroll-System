@@ -5,6 +5,7 @@ from services.mongo_service import mongo_db
 
 # Import routers form endpoint files
 from api.endpoints.test import router as testRouter
+from api.endpoints.report import router as reportRouter
 
 app = FastAPI()
 
@@ -20,6 +21,7 @@ app.add_middleware(
 
 # Include the routers
 app.include_router(testRouter)
+app.include_router(reportRouter)
 
 
 
